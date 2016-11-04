@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { IProduct} from './IProduct';
+import {ProductService} from './product.service';
 
 @Component({
     selector: 'nat-products',
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
     pageTitle: string = 'Product List';
     isImageVisible : boolean = false;
     imageWidth : number = 40;
@@ -16,7 +17,13 @@ export class ProductListComponent {
     toggleImage() : void {
         this.isImageVisible = !this.isImageVisible;
     }
-     products: IProduct[] = [
+    ngOnInit() : void {
+        console.log("OnInit: the product component is created!");
+    }
+    products: IProduct[];
+    
+    /*
+    [
         {
             "productId": 2,
             "productName": "Garden Cart",
@@ -37,5 +44,9 @@ export class ProductListComponent {
             "starRating": 4.8,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
-    ];
+    ];*/
+
+    constructor(private productService : ProductService) {
+        this.products = productService.getProducts();
+    }
 }
