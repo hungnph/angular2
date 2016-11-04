@@ -42,6 +42,9 @@ var ProductListComponent = (function () {
     ProductListComponent.prototype.toggleImage = function () {
         this.isImageVisible = !this.isImageVisible;
     };
+    ProductListComponent.prototype.ngOnInit = function () {
+        console.log("OnInit: the product component is created!");
+    };
     ProductListComponent = __decorate([
         core_1.Component({
             selector: 'nat-products',
