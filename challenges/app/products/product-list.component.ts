@@ -4,7 +4,8 @@ import { IProduct} from './IProduct';
 
 @Component({
     selector: 'nat-products',
-    templateUrl: 'app/products/product-list.component.html'
+    templateUrl: 'app/products/product-list.component.html',
+    styleUrls: ['app/products/product-list.component.css']
 })
 export class ProductListComponent {
     pageTitle: string = 'Product List';
